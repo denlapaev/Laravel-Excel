@@ -19,7 +19,7 @@
   ],
   "require": {
     "php": ">=5.5",
-    "phpoffice/phpexcel": "1.8.*",
+    "galchenkov/phpexcel": "1.8.*",
     "illuminate/cache": "5.0.*|5.1.*|5.2.*",
     "illuminate/config": "5.0.*|5.1.*|5.2.*",
     "illuminate/filesystem": "5.0.*|5.1.*|5.2.*",
@@ -33,6 +33,12 @@
     "mockery/mockery": "~0.9",
     "orchestra/testbench": "3.1.*"
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/galchenkov/PHPExcel.git"
+    }
+  ],
   "suggest": {
     "illuminate/http": "5.0.*|5.1.*|5.2.*",
     "illuminate/routing": "5.0.*|5.1.*|5.2.*",
