@@ -563,8 +563,10 @@ class ExcelParser {
      */
     protected function parseDateAsCarbon()
     {
+        $cellContent = $this->cell->getCalculatedValue();
+
         // If has a date
-        if ( $cellContent = $this->cell->getCalculatedValue() )
+        if ( $cellContent && is_numeric($cellContent) )
         {
             // Convert excel time to php date object
             $date = PHPExcel_Shared_Date::ExcelToPHPObject($this->cell->getCalculatedValue())->format('Y-m-d H:i:s');
