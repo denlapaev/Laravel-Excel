@@ -563,19 +563,21 @@ class ExcelParser {
      */
     protected function parseDateAsCarbon()
     {
-        $cellContent = $this->cell->getCalculatedValue();
-
         // If has a date
-        if ( $cellContent && is_numeric($cellContent) )
+        if ( $cellContent = $this->cell->getCalculatedValue() )
         {
-            // Convert excel time to php date object
-            $date = PHPExcel_Shared_Date::ExcelToPHPObject($this->cell->getCalculatedValue())->format('Y-m-d H:i:s');
+            if ( is_numeric($cellContent) ) {
+                // Convert excel time to php date object
+                $date = PHPExcel_Shared_Date::ExcelToPHPObject($this->cell->getCalculatedValue())->format('Y-m-d H:i:s');
 
-            // Parse with carbon
-            $date = Carbon::parse($date);
+                // Parse with carbon
+                $date = Carbon::parse($date);
 
-            // Format the date if wanted
-            return $this->reader->getDateFormat() ? $date->format($this->reader->getDateFormat()) : $date;
+                // Format the date if wanted
+                return $this->reader->getDateFormat() ? $date->format($this->reader->getDateFormat()) : $date;
+            } else {
+                return $cellContent;
+            }
         }
 
         return null;
