@@ -65,14 +65,13 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
-        "laravel": {
-            "providers": [
-                "Maatwebsite\\Excel\\ExcelServiceProvider"
-            ],
-            "aliases": {
-                "Excel": "Maatwebsite\\Excel\\Facades\\Excel"
-            }
-        }
+    "laravel": {
+      "providers": [
+        "Maatwebsite\\Excel\\ExcelServiceProvider"
+      ],
+      "aliases": {
+        "Excel": "Maatwebsite\\Excel\\Facades\\Excel"
+      }
     }
   }
 }
